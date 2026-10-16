@@ -12,12 +12,12 @@
 }
 
 .filter-pill-btn {
-  color: var(--text-secondary);
+  color: #e2e8f0;
   border: none;
   border-radius: 20px;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 500;
-  padding: 0.3rem 0.85rem;
+  padding: 0.35rem 0.95rem;
   transition: all 0.2s ease;
 }
 
@@ -112,15 +112,16 @@
 }
 
 .card-description {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.6;
+  color: #cbd5e1;
 }
 
 .minimal-tech-badge {
-  background-color: #172025;
-  border: 1px solid #233038;
-  color: #94a3b8;
-  font-size: 0.72rem;
+  background-color: #1a2328;
+  border: 1px solid #28373f;
+  color: #f1f5f9;
+  font-size: 0.74rem;
   font-weight: 500;
   padding: 0.25rem 0.55rem;
   border-radius: 4px;
@@ -129,7 +130,7 @@
 .btn-slide-action {
   background-color: transparent;
   border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
+  color: #e2e8f0;
   border-radius: 8px;
   font-size: 0.82rem;
   transition: all 0.2s ease;

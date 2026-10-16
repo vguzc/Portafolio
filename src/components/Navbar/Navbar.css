@@ -1,84 +1,51 @@
-.minimal-navbar {
-  background-color: rgba(9, 12, 14, 0.85);
+.pill-nav-wrapper {
+  background: transparent;
+  pointer-events: none;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Isla flotante / pill dock exacto a la captura */
+.nav-pill-dock {
+  pointer-events: auto;
+  background: rgba(14, 19, 23, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: all 0.3s ease;
-  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
 }
 
-.brand-title {
-  color: var(--text-primary);
-  font-size: 0.98rem;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-.brand-subtitle {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
-.status-dot-green {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--accent-green-sober);
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-/* Isla flotante / pill dock */
-.nav-pill-dock {
-  background: var(--bg-pill);
-  border: 1px solid var(--border-card);
-  padding: 0.25rem 0.4rem;
-  border-radius: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+.nav-pill-dock:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
 }
 
 .pill-link {
-  color: var(--text-secondary) !important;
-  font-size: 0.84rem;
+  color: #e2e8f0 !important;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.35rem 0.9rem !important;
-  border-radius: 20px;
-  transition: all 0.2s ease;
+  padding: 0.45rem 1rem !important;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
 .pill-link:hover,
 .pill-link:focus {
-  color: var(--text-primary) !important;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-.direct-link {
-  color: var(--text-secondary);
-  font-size: 0.84rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.direct-link:hover {
-  color: var(--text-primary);
-}
-
-.xp-chip {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  color: var(--accent-green-sober);
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-}
-
-.minimal-toggler {
-  border: 1px solid var(--border-card);
-  padding: 0.3rem 0.6rem;
-}
-
-.minimal-toggler:focus {
-  box-shadow: 0 0 0 2px var(--accent-green-sober);
+@media (max-width: 576px) {
+  .nav-pill-dock {
+    padding: 0.3rem 0.4rem;
+  }
+  .pill-link {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.6rem !important;
+  }
 }

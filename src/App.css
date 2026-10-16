@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PALETA MINIMALISTA: COLORES OSCUROS LIMPIOS CON VERDE SOBRIO PARA DETALLES
+   PALETA MINIMALISTA: COLORES OSCUROS LIMPIOS CON ALTO CONTRASTE DE TEXTO
    Inspirado en diseño editorial oscuro y estéticas contemporáneas
    ========================================================================== */
 :root {
@@ -7,23 +7,23 @@
   --bg-main: #090c0e;
   --bg-card: #12171a;
   --bg-surface: #171e22;
-  --bg-pill: rgba(18, 23, 26, 0.85);
+  --bg-pill: rgba(14, 19, 23, 0.92);
   
   /* Bordes sutiles y líneas de precisión */
-  --border-subtle: #1e262b;
-  --border-card: #1f282e;
-  --border-hover: #2d3a42;
+  --border-subtle: #202b31;
+  --border-card: #222d34;
+  --border-hover: #32434d;
   
   /* Acento verde sobrio y elegante (exclusivo para micro-detalles) */
   --accent-green-sober: #10b981;
   --accent-green-dark: #059669;
-  --accent-green-subtle: rgba(16, 185, 129, 0.12);
+  --accent-green-subtle: rgba(16, 185, 129, 0.15);
   --accent-amber: #f59e0b;
   
-  /* Tipografía limpia */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  /* Tipografía limpia con ALTO CONTRASTE y máxima legibilidad */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1; /* Gris claro muy legible */
+  --text-muted: #94a3b8;     /* Gris neutro equilibrado */
   
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -42,6 +42,15 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Clases de texto de Bootstrap con alto contraste garantizado */
+.text-secondary {
+  color: #cbd5e1 !important;
+}
+
+.text-muted {
+  color: #94a3b8 !important;
 }
 
 .portfolio-app {
@@ -72,11 +81,11 @@ textarea:focus-visible {
   background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e262b;
+  background: #202b31;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2f3c44;
+  background: #32434d;
 }
 
 /* Toast de logros / micro-gamificación */
