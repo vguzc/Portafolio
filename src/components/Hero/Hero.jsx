@@ -1,11 +1,12 @@
 import React from 'react';
+import defaultAvatar from '../../assets/perfil.jpg';
 import './Hero.css';
 
 const Hero = ({
   nombre = "Vicente Guzmán",
   titulo = "Estudiante de Informática Duoc UC | Desarrollador Fullstack & Ciberseguridad",
   biografia = "Apasionado por la construcción de aplicaciones web seguras, escalables y responsivas con React y tecnologías modernas. Enfocado en aplicar estándares OWASP, testing automatizado y buenas prácticas de ingeniería de software.",
-  fotoUrl = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80",
+  fotoUrl = defaultAvatar,
   githubUrl = "https://github.com/Vguzc",
   linkedinUrl = "https://linkedin.com",
   email = "vi.guzmanc@duocuc.cl"
