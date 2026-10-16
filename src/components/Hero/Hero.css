@@ -1,166 +1,157 @@
-.hero-minimal {
+.hero-stefano-stage {
   background-color: var(--bg-main);
-  min-height: 80vh;
+  min-height: 88vh;
   border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  position: relative;
 }
 
-.status-pill-minimal {
-  background-color: var(--bg-card);
+/* Terminal utilizable integrada en la sección */
+.hero-terminal-backdrop {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
+.terminal-backdrop-container {
+  max-width: 920px;
+  border-radius: 12px;
+  overflow: hidden;
   border: 1px solid var(--border-card);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
-.dot-mini-green {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--accent-green-sober);
-  display: inline-block;
-  box-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
+/* Gran titular editorial estilo Stéfano Girardelli */
+.hero-foreground-content {
+  z-index: 2;
 }
 
-.hero-main-heading {
-  letter-spacing: -0.03em;
+.hero-tagline {
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.hero-headline-giant {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
   color: var(--text-primary);
-  font-size: 2.75rem;
 }
 
-.hero-editorial-lead {
-  font-size: 1.35rem;
-  font-weight: 500;
-  line-height: 1.45;
-  color: #cbd5e1;
-  letter-spacing: -0.01em;
+.hero-salute-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
+.headline-keyword {
+  color: var(--accent-green-sober);
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+/* Pastilla ovalada con la fotografía inline (Idéntica a la referencia de Stéfano) */
+.inline-capsule-photo {
+  display: inline-block;
+  width: 110px;
+  height: 52px;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.inline-capsule-photo:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-green-sober);
+}
+
+.capsule-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Textos secundarios con alto contraste */
 .hero-role-text {
   font-size: 1.05rem;
-  color: #cbd5e1;
+  color: #f1f5f9;
 }
 
 .hero-subtext {
   font-size: 0.95rem;
   line-height: 1.7;
-  max-width: 580px;
+  max-width: 620px;
   color: #cbd5e1;
 }
 
-.btn-minimal-primary {
-  background-color: #f8fafc;
-  color: #090c0e;
-  border: 1px solid #f8fafc;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-radius: 24px;
-  transition: all 0.2s ease;
-}
-
-.btn-minimal-primary:hover {
-  background-color: #e2e8f0;
-  color: #090c0e;
-}
-
-.btn-minimal-secondary {
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-hover);
-  font-size: 0.9rem;
-  font-weight: 500;
-  border-radius: 24px;
-  transition: all 0.2s ease;
-}
-
-.btn-minimal-secondary:hover {
-  border-color: #475569;
-  background-color: rgba(255, 255, 255, 0.03);
-}
-
-.btn-minimal-toggle {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-card);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  border-radius: 24px;
-  transition: all 0.2s ease;
-}
-
-.btn-minimal-toggle:hover {
-  border-color: var(--accent-green-sober);
-  color: var(--accent-green-sober);
-}
-
-.social-pill {
+/* Enlaces a canales directos */
+.social-pill-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-card);
+  gap: 0.4rem;
+  background-color: var(--bg-card);
   border: 1px solid var(--border-card);
-  color: var(--text-secondary);
-  font-size: 1rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
   transition: all 0.2s ease;
 }
 
-.social-pill:hover {
-  border-color: var(--border-hover);
-  color: var(--text-primary);
+.social-pill-link:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
-/* Ventana enmarcada minimalista (Inspirada en Perry Wang) */
-.showcase-window {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: 16px;
-  overflow: hidden;
-  max-width: 480px;
+/* Botón CTA inferior derecho estilo "WATCH DEMO REEL >" */
+.hero-explore-cta {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s ease;
 }
 
-.showcase-window-header {
-  background-color: #0e1316;
-  border-bottom: 1px solid var(--border-subtle);
+.hero-explore-cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateX(4px);
 }
 
-.window-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  display: inline-block;
+@media (max-width: 992px) {
+  .hero-headline-giant {
+    font-size: 2.4rem;
+  }
+  .inline-capsule-photo {
+    width: 85px;
+    height: 42px;
+  }
 }
 
-.dot-close { background-color: #ef4444; opacity: 0.8; }
-.dot-min { background-color: #eab308; opacity: 0.8; }
-.dot-max { background-color: #22c55e; opacity: 0.8; }
-
-.window-title {
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-}
-
-.image-frame {
-  height: 290px;
-  overflow: hidden;
-  background-color: #090c0e;
-}
-
-.showcase-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.image-tag-overlay {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background-color: rgba(9, 12, 14, 0.75);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
+@media (max-width: 576px) {
+  .hero-headline-giant {
+    font-size: 1.95rem;
+  }
+  .hero-salute-name {
+    font-size: 1.35rem;
+  }
+  .inline-capsule-photo {
+    width: 75px;
+    height: 38px;
+  }
 }

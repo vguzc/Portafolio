@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import defaultAvatar from '../../assets/perfil.jpg';
 import Terminal from '../Terminal/Terminal';
 import './Hero.css';
@@ -13,106 +13,89 @@ const Hero = ({
   email = "vi.guzmanc@duocuc.cl",
   onCommandExecuted
 }) => {
-  const [showConsole, setShowConsole] = useState(false);
-
   return (
-    <header id="inicio" className="hero-minimal py-5 d-flex align-items-center">
-      <div className="container py-lg-4">
-        <div className="row align-items-center g-5">
-          {/* Columna Izquierda: Mensaje editorial limpio */}
-          <div className="col-lg-7 text-center text-lg-start">
-            <div className="d-inline-flex align-items-center gap-2 status-pill-minimal mb-3">
-              <span className="dot-mini-green"></span>
-              <span className="small text-secondary">Desarrollo Seguro & Arquitectura Web</span>
-            </div>
+    <header id="inicio" className="hero-stefano-stage py-5 position-relative d-flex flex-column justify-content-between">
+      {/* Fondo interactivo con Terminal utilizable */}
+      <div className="hero-terminal-backdrop" aria-label="Terminal de comandos interactiva de fondo">
+        <div className="terminal-backdrop-container mx-auto">
+          <Terminal onCommandExecuted={onCommandExecuted} />
+        </div>
+      </div>
 
-            <h1 className="display-4 fw-bold hero-main-heading mb-3">
-              Hola, soy {nombre}
-            </h1>
+      {/* Capa de contenido en primer plano (Inspirada en Stéfano Girardelli) */}
+      <div className="container hero-foreground-content position-relative z-2 py-lg-4">
+        {/* Identificador superior */}
+        <div className="d-flex align-items-center gap-2 mb-3">
+          <span className="dot-mini-green"></span>
+          <span className="hero-tagline small font-monospace text-secondary">
+            PORTAFOLIO DE DESARROLLO SEGURO
+          </span>
+        </div>
 
-            <p className="hero-editorial-lead mb-3">
-              Construyo software seguro, interfaces interactivas y arquitecturas web escalables.
-            </p>
+        {/* Gran titular editorial con pastilla de imagen inline (Estilo Stéfano Girardelli) */}
+        <h1 className="hero-headline-giant mb-4">
+          <span className="d-block hero-salute-name text-white">Hola, soy {nombre}.</span>
+          <span className="hero-statement">
+            Construyo <span className="headline-keyword">software</span>
+            <span className="inline-capsule-photo mx-2 align-middle">
+              <img
+                src={fotoUrl}
+                alt={`Fotografía profesional de ${nombre}`}
+                className="capsule-avatar-img"
+              />
+            </span>
+            seguro & escalable.
+          </span>
+        </h1>
 
-            <p className="hero-role-text text-secondary mb-2 fw-medium">
+        {/* Zona inferior: Resumen a la izquierda y CTA a la derecha */}
+        <div className="row align-items-end justify-content-between pt-4 mt-2 mt-lg-4 gy-4">
+          <div className="col-lg-7">
+            <p className="hero-role-text mb-1 fw-semibold text-light">
               {titulo}
             </p>
-
-            <p className="hero-subtext text-secondary mb-4">
+            <p className="hero-subtext mb-3 text-secondary">
               {biografia}
             </p>
 
-            {/* Acciones principales */}
-            <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-4">
-              <a href="#proyectos" className="btn btn-minimal-primary px-4 py-2">
-                Explorar Proyectos
-              </a>
-              <a href="#contacto" className="btn btn-minimal-secondary px-4 py-2">
-                Contactar
-              </a>
-              <button
-                type="button"
-                className="btn btn-minimal-toggle px-3 py-2"
-                onClick={() => setShowConsole(!showConsole)}
-                title="Abrir u ocultar consola interactiva"
+            <div className="d-flex align-items-center gap-3">
+              <span className="text-muted small">Canales:</span>
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="social-pill-link"
+                aria-label="GitHub de Vicente Guzmán"
               >
-                <i className={`bi ${showConsole ? 'bi-image' : 'bi-terminal'} me-1`}></i>
-                {showConsole ? 'Ver Foto' : 'Abrir Consola'}
-              </button>
-            </div>
-
-            {/* Enlaces a canales */}
-            <div className="d-flex align-items-center gap-3 justify-content-center justify-content-lg-start">
-              <span className="text-muted small">Canales directos:</span>
-              <a href={githubUrl} target="_blank" rel="noreferrer" className="social-pill" aria-label="GitHub de Vicente Guzmán">
                 <i className="bi bi-github" aria-hidden="true"></i>
+                <span>GitHub</span>
               </a>
-              <a href={linkedinUrl} target="_blank" rel="noreferrer" className="social-pill" aria-label="LinkedIn de Vicente Guzmán">
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="social-pill-link"
+                aria-label="LinkedIn de Vicente Guzmán"
+              >
                 <i className="bi bi-linkedin" aria-hidden="true"></i>
+                <span>LinkedIn</span>
               </a>
-              <a href={`mailto:${email}`} className="social-pill" aria-label="Enviar correo electrónico a Vicente Guzmán">
+              <a
+                href={`mailto:${email}`}
+                className="social-pill-link"
+                aria-label="Enviar correo electrónico a Vicente Guzmán"
+              >
                 <i className="bi bi-envelope-at-fill" aria-hidden="true"></i>
+                <span>Email</span>
               </a>
             </div>
           </div>
 
-          {/* Columna Derecha: Ventana Enmarcada (Inspirada en Perry Wang) */}
-          <div className="col-lg-5">
-            <div className="showcase-window shadow-lg mx-auto">
-              {/* Barra superior de la ventana */}
-              <div className="showcase-window-header d-flex align-items-center justify-content-between px-3 py-2">
-                <div className="d-flex align-items-center gap-2">
-                  <span className="window-dot dot-close"></span>
-                  <span className="window-dot dot-min"></span>
-                  <span className="window-dot dot-max"></span>
-                </div>
-                <span className="window-title small text-muted font-monospace">
-                  {showConsole ? 'console.sh' : 'workspace.jpg'}
-                </span>
-                <span className="dot-mini-green"></span>
-              </div>
-
-              {/* Contenido de la ventana: Foto de Lego Neo o Terminal */}
-              <div className="showcase-window-body">
-                {showConsole ? (
-                  <Terminal onCommandExecuted={onCommandExecuted} />
-                ) : (
-                  <div className="image-frame position-relative">
-                    <img
-                      src={fotoUrl}
-                      alt={`Fotografía profesional de ${nombre}`}
-                      className="img-fluid showcase-image"
-                      width="480"
-                      height="320"
-                      loading="eager"
-                    />
-                    <div className="image-tag-overlay font-monospace small">
-                      <span>Wake up, Neo...</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+          <div className="col-lg-4 text-start text-lg-end">
+            <a href="#proyectos" className="hero-explore-cta text-decoration-none">
+              <span>VER PROYECTOS</span>
+              <i className="bi bi-arrow-down-right ms-2" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>

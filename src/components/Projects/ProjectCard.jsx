@@ -22,8 +22,9 @@ const ProjectCard = ({
             loading="lazy"
           />
           {destacado && (
-            <span className="badge featured-pill position-absolute top-0 end-0 m-3 shadow-sm">
-              <span className="dot-mini-green me-1"></span> Destacado
+            <span className="featured-pill-badge position-absolute top-0 end-0 m-3 shadow-sm">
+              <span className="badge-green-circle" aria-hidden="true"></span>
+              <span>Destacado</span>
             </span>
           )}
         </div>
