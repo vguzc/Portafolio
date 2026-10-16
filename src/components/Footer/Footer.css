@@ -1,0 +1,19 @@
+.footer-section {
+  background-color: #0b1120 !important;
+}
+
+.hover-light:hover {
+  color: #38bdf8 !important;
+}
+
+.back-to-top-btn {
+  width: 36px;
+  height: 36px;
+  transition: all 0.25s ease;
+}
+
+.back-to-top-btn:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+}

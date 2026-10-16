@@ -1,0 +1,30 @@
+.custom-navbar {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  color: #fff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.custom-navbar .nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  padding: 0.5rem 0.85rem !important;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus {
+  color: #38bdf8 !important;
+  background-color: rgba(255, 255, 255, 0.05);
+}
