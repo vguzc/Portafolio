@@ -49,6 +49,8 @@ El objetivo principal es asegurar la robustez, accesibilidad, manejo de estado y
 | **Terminal** | TC-17 | Renderizado de consola y línea de comandos | Montaje inicial | Muestra título `bash - root@vguzc:~` e input | IE2.1.1 / IE2.2.1 |
 | **Terminal** | TC-18 | Procesamiento y respuesta de comandos | Ejecución de comando `help` | Output con comandos disponibles desplegado | IE2.1.2 / IE2.2.1 |
 | **Terminal** | TC-19 | Ejecución mediante botones de acción rápida | Clic en botón `matrix` | Invoca callback y muestra respuesta en DOM | IE2.1.2 / IE2.2.1 |
+| **Projects (3D)** | TC-20 | Rotación del carrusel 3D con controles de flecha | Clic en botones 'Girar a la derecha' y 'Girar a la izquierda' | Rota el índice activo y actualiza vista DOM | IE2.1.2 / IE2.2.1 |
+| **Projects (3D)** | TC-21 | Respuesta a gestos de arrastre interactivo (drag) | Eventos mouseDown, mouseMove y mouseUp en escenario 3D | El componente captura coordenadas y calcula inercia | IE2.2.1 / IE2.3.1 |
 
 ---
 

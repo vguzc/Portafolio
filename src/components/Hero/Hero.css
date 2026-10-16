@@ -1,157 +1,154 @@
-.hero-stefano-stage {
-  background-color: var(--bg-main);
-  min-height: 88vh;
+.home-terminal-fullscreen {
+  height: 100vh;
+  min-height: 650px;
+  background-color: #06080a;
   border-bottom: 1px solid var(--border-subtle);
-  overflow: hidden;
   position: relative;
-}
-
-/* Terminal utilizable integrada en la sección */
-.hero-terminal-backdrop {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  z-index: 1;
-}
-
-.terminal-backdrop-container {
-  max-width: 920px;
-  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--border-card);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Gran titular editorial estilo Stéfano Girardelli */
-.hero-foreground-content {
-  z-index: 2;
+/* ==========================================================================
+   BARRA LATERAL (SIDEBAR): Avatar, GitHub, LinkedIn, Contacto
+   ========================================================================== */
+.hero-lateral-sidebar {
+  width: 74px;
+  min-width: 74px;
+  background-color: #090c0e;
+  border-right: 1px solid #161c20;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.hero-tagline {
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+.sidebar-avatar-wrapper {
+  width: 48px;
+  height: 48px;
 }
 
-.hero-headline-giant {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.035em;
-  color: var(--text-primary);
-}
-
-.hero-salute-name {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-.headline-keyword {
-  color: var(--accent-green-sober);
-  text-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
-}
-
-/* Pastilla ovalada con la fotografía inline (Idéntica a la referencia de Stéfano) */
-.inline-capsule-photo {
-  display: inline-block;
-  width: 110px;
-  height: 52px;
-  border-radius: 9999px;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.inline-capsule-photo:hover {
-  transform: scale(1.05);
-  border-color: var(--accent-green-sober);
-}
-
-.capsule-avatar-img {
+.sidebar-avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-/* Textos secundarios con alto contraste */
-.hero-role-text {
-  font-size: 1.05rem;
-  color: #f1f5f9;
+.sidebar-avatar-img:hover {
+  transform: scale(1.08);
+  border-color: var(--accent-green-sober);
 }
 
-.hero-subtext {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  max-width: 620px;
-  color: #cbd5e1;
+.sidebar-status-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--accent-green-sober);
+  border: 2px solid #090c0e;
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.7);
 }
 
-/* Enlaces a canales directos */
-.social-pill-link {
-  display: inline-flex;
+.sidebar-user-tag {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-icon-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #0f1417;
+  border: 1px solid #1b2328;
+  color: #94a3b8;
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-card);
-  color: #cbd5e1;
+  justify-content: center;
   text-decoration: none;
-  font-size: 0.82rem;
-  padding: 0.35rem 0.8rem;
-  border-radius: 20px;
-  transition: all 0.2s ease;
-}
-
-.social-pill-link:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-/* Botón CTA inferior derecho estilo "WATCH DEMO REEL >" */
-.hero-explore-cta {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
   transition: all 0.25s ease;
 }
 
-.hero-explore-cta:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+.sidebar-icon-link:hover {
+  background-color: #161f24;
+  border-color: var(--accent-green-sober);
   color: #ffffff;
-  transform: translateX(4px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.18);
 }
 
-@media (max-width: 992px) {
-  .hero-headline-giant {
-    font-size: 2.4rem;
-  }
-  .inline-capsule-photo {
-    width: 85px;
-    height: 42px;
-  }
+.sidebar-scroll-down {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #1b2328;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-@media (max-width: 576px) {
-  .hero-headline-giant {
-    font-size: 1.95rem;
+.sidebar-scroll-down:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-green-sober);
+}
+
+/* ==========================================================================
+   PANTALLA PRINCIPAL: Terminal como fondo completo
+   ========================================================================== */
+.terminal-main-stage {
+  background-color: #06080a;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.terminal-hero-headline-block {
+  padding-bottom: 0.5rem;
+}
+
+.terminal-session-meta {
+  color: #475569;
+  letter-spacing: 0.04em;
+}
+
+.terminal-main-headline {
+  font-size: clamp(1.7rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.terminal-accent-text {
+  color: var(--accent-green-sober);
+  text-shadow: 0 0 14px rgba(5, 150, 105, 0.35);
+}
+
+@media (max-width: 768px) {
+  .home-terminal-fullscreen {
+    height: auto;
+    min-height: 100vh;
   }
-  .hero-salute-name {
-    font-size: 1.35rem;
+  .hero-lateral-sidebar {
+    width: 58px;
+    min-width: 58px;
   }
-  .inline-capsule-photo {
-    width: 75px;
+  .sidebar-icon-link {
+    width: 38px;
     height: 38px;
   }
+  .terminal-main-stage {
+    height: auto;
+    min-height: 100vh;
+    padding: 0.5rem !important;
+  }
+  .terminal-main-headline {
+    font-size: 1.45rem;
+  }
 }
+

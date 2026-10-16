@@ -1,48 +1,143 @@
-.contact-minimal-section {
+.contact-terminal-section {
   background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.minimal-contact-info {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-card) !important;
+/* Ventana estilo terminal para la sección de contacto */
+.contact-terminal-window {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
-.minimal-form-card {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-card) !important;
+.contact-terminal-header {
+  background-color: #0b0f11;
+  border-bottom: 1px solid var(--border-subtle);
+  min-height: 42px;
 }
 
-.contact-icon-minimal {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+.contact-terminal-body {
+  background-color: var(--bg-card);
+}
+
+/* Puntos de ventana estilo macOS */
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  background-color: #ef4444;
+}
+
+.dot-yellow {
+  background-color: #f59e0b;
+}
+
+.dot-green {
+  background-color: #10b981;
+}
+
+.terminal-title {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.badge-online {
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-green-sober) !important;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-green-sober);
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.7);
+  display: inline-block;
+  animation: pulseAnimation 2s infinite ease-in-out;
+}
+
+@keyframes pulseAnimation {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.text-emerald-sober {
+  color: var(--accent-green-sober) !important;
+}
+
+/* Canales directos tipo píldora de consola */
+.terminal-channel-pill {
+  background-color: #0b0f11;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s ease;
+}
+
+.terminal-channel-pill:hover {
   background-color: #172025;
-  border: 1px solid #233038;
-  color: var(--accent-green-sober);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 0.95rem;
+  border-color: var(--border-hover);
 }
 
-.minimal-input {
+/* Inputs y TextArea tipo CLI */
+.terminal-cli-input {
   background-color: #0b0f11 !important;
   border: 1px solid var(--border-card) !important;
   color: var(--text-primary) !important;
   border-radius: 8px;
   padding: 0.65rem 0.85rem;
   font-size: 0.88rem;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.minimal-input:focus {
-  border-color: var(--border-hover) !important;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+.terminal-cli-input:focus {
+  border-color: var(--accent-green-sober) !important;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.25) !important;
   color: #ffffff !important;
 }
 
-.minimal-input::placeholder {
-  color: var(--text-muted);
+.terminal-cli-input::placeholder {
+  color: #64748b;
+  font-size: 0.84rem;
+}
+
+/* Botón de envío terminal */
+.btn-minimal-primary {
+  background-color: var(--accent-green-sober);
+  border: 1px solid var(--accent-green-dark);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-minimal-primary:hover {
+  background-color: var(--accent-green-dark);
+  border-color: var(--accent-green-dark);
+  color: #ffffff;
+}
+
+/* Pantalla de éxito en terminal */
+.terminal-success-screen {
+  background-color: #0b0f11;
+  border: 1px solid rgba(5, 150, 105, 0.4);
+}
+
+@media (min-width: 992px) {
+  .border-end-lg {
+    border-right: 1px solid var(--border-subtle) !important;
+  }
 }

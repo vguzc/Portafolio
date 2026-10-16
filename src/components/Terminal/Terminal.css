@@ -1,49 +1,99 @@
 .terminal-card {
-  background-color: #0b0f11;
-  border: 1px solid #1f292e;
-  border-radius: 10px;
+  background-color: #090d0f;
+  border: 1px solid #161e23;
+  border-radius: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03);
   transition: border-color 0.3s ease;
 }
 
-.terminal-card:focus-within,
-.terminal-card:hover {
-  border-color: rgba(0, 229, 117, 0.4);
-}
-
 .terminal-header {
-  background-color: #11171a;
-  border-bottom: 1px solid #1f292e;
+  background-color: #0d1215;
+  border-bottom: 1px solid #161e23;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.dot-red { background-color: #ef4444; }
-.dot-yellow { background-color: #eab308; }
-.dot-green { background-color: #22c55e; }
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
 
 .terminal-title {
-  color: #8b9ca7;
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
+  color: #64748b;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
-.terminal-body {
-  height: 160px;
+.badge-online {
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-green-sober);
+  box-shadow: 0 0 6px var(--accent-green-sober);
+}
+
+.terminal-plus-icon {
+  color: #475569;
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Superficie única y fluida de la terminal */
+.terminal-inner-content {
+  background: radial-gradient(circle at 50% 15%, rgba(5, 150, 105, 0.03) 0%, rgba(9, 13, 15, 1) 85%);
   overflow-y: auto;
-  font-size: 0.85rem;
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b transparent;
+}
+
+/* Comentarios estilo terminal */
+.terminal-comments-block {
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid #202b31;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.terminal-comment-line {
   line-height: 1.5;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 229, 117, 0.03) 0%, rgba(11, 15, 17, 1) 100%);
+}
+
+.terminal-comment-prefix {
+  color: #64748b !important;
+}
+
+.terminal-comment-val {
+  color: #cbd5e1;
+}
+
+/* Flujo de salida continuo, sin caja interior secundaria */
+.terminal-body {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.25rem 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .terminal-line {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+  word-break: break-word;
 }
 
 .terminal-system {
@@ -56,21 +106,32 @@
 }
 
 .terminal-output {
-  color: #00e575;
-  text-shadow: 0 0 4px rgba(0, 229, 117, 0.35);
+  color: var(--accent-green-sober);
+  text-shadow: 0 0 6px rgba(5, 150, 105, 0.3);
 }
 
+/* Barra de prompt integrada, sin aspecto de caja separada */
 .terminal-input-bar {
-  background-color: #0e1416;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid #161e23;
+  border-bottom: 1px solid #161e23;
+  border-left: none;
+  border-right: none;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.terminal-input-bar:focus-within {
+  border-color: rgba(5, 150, 105, 0.5) !important;
+  background-color: rgba(5, 150, 105, 0.03);
 }
 
 .terminal-input {
   background: transparent;
   border: none;
   outline: none;
-  color: #e6edf3;
-  font-size: 0.85rem;
-  padding: 0.25rem;
+  color: #f1f5f9;
+  font-size: 0.88rem;
 }
 
 .terminal-input::placeholder {
@@ -78,22 +139,23 @@
 }
 
 .terminal-quick-actions {
-  background-color: #0c1113;
-  border-top: 1px solid #192226;
+  background-color: transparent;
 }
 
 .quick-cmd-btn {
-  background-color: #161e22;
-  border: 1px solid #243036;
+  background-color: #0f1518;
+  border: 1px solid #1a2328;
   color: #94a3b8;
-  font-size: 0.72rem;
-  padding: 0.15rem 0.55rem;
-  border-radius: 4px;
+  font-size: 0.74rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 6px;
   transition: all 0.2s ease;
 }
 
 .quick-cmd-btn:hover {
-  background-color: #00e575;
-  color: #0c1012;
-  border-color: #00e575;
+  background-color: #151e22;
+  border-color: var(--accent-green-sober);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
+

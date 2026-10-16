@@ -14,92 +14,100 @@ const Hero = ({
   onCommandExecuted
 }) => {
   return (
-    <header id="inicio" className="hero-stefano-stage py-5 position-relative d-flex flex-column justify-content-between">
-      {/* Fondo interactivo con Terminal utilizable */}
-      <div className="hero-terminal-backdrop" aria-label="Terminal de comandos interactiva de fondo">
-        <div className="terminal-backdrop-container mx-auto">
-          <Terminal onCommandExecuted={onCommandExecuted} />
+    <section id="inicio" className="home-terminal-fullscreen d-flex">
+      {/* Barra Lateral (Sidebar): Foto, GitHub, LinkedIn y Contacto */}
+      <aside className="hero-lateral-sidebar d-flex flex-column align-items-center justify-content-between p-3" aria-label="Barra lateral de perfil y redes">
+        <div className="sidebar-top d-flex flex-column align-items-center gap-2">
+          <div className="sidebar-avatar-wrapper position-relative">
+            <img
+              src={fotoUrl}
+              alt={`Fotografía profesional de ${nombre}`}
+              className="sidebar-avatar-img rounded-circle"
+              width="52"
+              height="52"
+              loading="eager"
+            />
+            <span className="sidebar-status-dot" title="En línea"></span>
+          </div>
+          <span className="sidebar-user-tag font-monospace text-muted">&lt;VG/&gt;</span>
         </div>
-      </div>
 
-      {/* Capa de contenido en primer plano (Inspirada en Stéfano Girardelli) */}
-      <div className="container hero-foreground-content position-relative z-2 py-lg-4">
-        {/* Identificador superior */}
-        <div className="d-flex align-items-center gap-2 mb-3">
-          <span className="dot-mini-green"></span>
-          <span className="hero-tagline small font-monospace text-secondary">
-            PORTAFOLIO DE DESARROLLO SEGURO
-          </span>
+        {/* Enlaces de la barra lateral: Navegación, Redes y Contacto */}
+        <nav className="sidebar-links d-flex flex-column align-items-center gap-3 my-auto" aria-label="Navegación de accesos rápidos y redes">
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="sidebar-icon-link"
+            aria-label={`GitHub de ${nombre}`}
+            title="GitHub"
+          >
+            <i className="bi bi-github fs-5" aria-hidden="true"></i>
+          </a>
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="sidebar-icon-link"
+            aria-label={`LinkedIn de ${nombre}`}
+            title="LinkedIn"
+          >
+            <i className="bi bi-linkedin fs-5" aria-hidden="true"></i>
+          </a>
+          <a
+            href={`mailto:${email}`}
+            className="sidebar-icon-link"
+            aria-label={`Enviar correo electrónico a ${nombre}`}
+            title="Enviar correo electrónico"
+          >
+            <i className="bi bi-envelope-at-fill fs-5" aria-hidden="true"></i>
+          </a>
+          <a
+            href="#contacto"
+            className="sidebar-icon-link"
+            aria-label="Ir a formulario de contacto"
+            title="Formulario de Contacto"
+          >
+            <i className="bi bi-chat-text-fill fs-5" aria-hidden="true"></i>
+          </a>
+        </nav>
+
+        {/* Botón inferior para ir a proyectos */}
+        <div className="sidebar-bottom">
+          <a href="#proyectos" className="sidebar-scroll-down" title="Ver proyectos" aria-label="Ver proyectos">
+            <i className="bi bi-chevron-down"></i>
+          </a>
         </div>
+      </aside>
 
-        {/* Gran titular editorial con pastilla de imagen inline (Estilo Stéfano Girardelli) */}
-        <h1 className="hero-headline-giant mb-4">
-          <span className="d-block hero-salute-name text-white">Hola, soy {nombre}.</span>
-          <span className="hero-statement">
-            Construyo <span className="headline-keyword">software</span>
-            <span className="inline-capsule-photo mx-2 align-middle">
-              <img
-                src={fotoUrl}
-                alt={`Fotografía profesional de ${nombre}`}
-                className="capsule-avatar-img"
-              />
-            </span>
-            seguro & escalable.
-          </span>
-        </h1>
+      {/* Pantalla Principal: Terminal como fondo completo de Home */}
+      <div className="terminal-main-stage flex-grow-1 p-2 p-md-3 d-flex flex-column">
+        <Terminal onCommandExecuted={onCommandExecuted}>
+          <div className="terminal-hero-headline-block mb-3">
+            <div className="terminal-session-meta font-monospace small text-muted mb-2">
+              // duoc-uc-workstation :: sesión activa
+            </div>
+            {/* Texto principal solicitado dentro de la terminal */}
+            <h1 className="terminal-main-headline font-monospace text-white mb-2">
+              Hola soy <span className="text-white fw-bold">{nombre}</span>, construyo{' '}
+              <span className="terminal-accent-text">software seguro y escalable</span>.
+            </h1>
 
-        {/* Zona inferior: Resumen a la izquierda y CTA a la derecha */}
-        <div className="row align-items-end justify-content-between pt-4 mt-2 mt-lg-4 gy-4">
-          <div className="col-lg-7">
-            <p className="hero-role-text mb-1 fw-semibold text-light">
-              {titulo}
-            </p>
-            <p className="hero-subtext mb-3 text-secondary">
-              {biografia}
-            </p>
-
-            <div className="d-flex align-items-center gap-3">
-              <span className="text-muted small">Canales:</span>
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="social-pill-link"
-                aria-label="GitHub de Vicente Guzmán"
-              >
-                <i className="bi bi-github" aria-hidden="true"></i>
-                <span>GitHub</span>
-              </a>
-              <a
-                href={linkedinUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="social-pill-link"
-                aria-label="LinkedIn de Vicente Guzmán"
-              >
-                <i className="bi bi-linkedin" aria-hidden="true"></i>
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href={`mailto:${email}`}
-                className="social-pill-link"
-                aria-label="Enviar correo electrónico a Vicente Guzmán"
-              >
-                <i className="bi bi-envelope-at-fill" aria-hidden="true"></i>
-                <span>Email</span>
-              </a>
+            {/* Role y Bio mostrados como comentarios de código de la terminal */}
+            <div className="terminal-comments-block font-monospace my-3">
+              <div className="terminal-comment-line small text-muted mb-1">
+                <span className="terminal-comment-prefix text-secondary"># [ROLE]:</span>{' '}
+                <span className="terminal-comment-val text-light">{titulo}</span>
+              </div>
+              <div className="terminal-comment-line small text-muted">
+                <span className="terminal-comment-prefix text-secondary"># [BIO]:</span>{' '}
+                <span className="terminal-comment-val text-secondary">{biografia}</span>
+              </div>
             </div>
           </div>
-
-          <div className="col-lg-4 text-start text-lg-end">
-            <a href="#proyectos" className="hero-explore-cta text-decoration-none">
-              <span>VER PROYECTOS</span>
-              <i className="bi bi-arrow-down-right ms-2" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
+        </Terminal>
       </div>
-    </header>
+    </section>
   );
 };
 

@@ -2,24 +2,28 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Terminal.css';
 
 const COMMANDS = {
-  help: 'Comandos disponibles: projects | skills | bio | status | matrix | clear',
+  help: 'Comandos disponibles: projects | skills | contact | bio | status | matrix | clear',
   projects: 'Navegando a la sección de proyectos... [OK]',
   skills: 'Skills: React 18, Bootstrap 5, JavaScript (ES6+), Jasmine, Karma, OWASP Top 10, Git',
-  bio: 'Vicente Guzmán: Desarrollador Fullstack enfocado en software escalable y desarrollo seguro (Duoc UC).',
-  status: 'STATUS: Sistema operativo nominal | Pruebas unitarias: 16/16 OK | Modo: Minimalista CRT',
+  contact: 'Navegando al formulario de contacto... [OK]',
+  bio: 'Vicente Guzmán: Desarrollador Fullstack enfocado en software seguro y escalable (Duoc UC).',
+  status: 'STATUS: Sistema operativo nominal | Pruebas unitarias: 19/19 OK | Modo: Minimalista Terminal',
   matrix: 'Wake up, Neo... The Matrix has you. Follow the white rabbit. 🐇'
 };
 
-const Terminal = ({ onCommandExecuted }) => {
+const Terminal = ({ onCommandExecuted, children }) => {
   const [history, setHistory] = useState([
-    { type: 'system', text: 'Wake up, Neo... [Terminal v2.4 inicializada]' },
-    { type: 'system', text: "Escribe 'help' o haz clic en los botones para interactuar." }
+    { type: 'system', text: 'Wake up, Neo... [Terminal interactiva inicializada]' },
+    { type: 'system', text: "Escribe 'help' o utiliza los comandos rápidos para interactuar." }
   ]);
   const [inputVal, setInputVal] = useState('');
-  const terminalEndRef = useRef(null);
+  const terminalScrollRef = useRef(null);
 
+  // Desplazamiento exclusivamente interno dentro de la consola (no mueve la ventana del navegador)
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalScrollRef.current) {
+      terminalScrollRef.current.scrollTop = terminalScrollRef.current.scrollHeight;
+    }
   }, [history]);
 
   const executeCommand = (cmd) => {
@@ -41,12 +45,17 @@ const Terminal = ({ onCommandExecuted }) => {
     ]);
     setInputVal('');
 
+    // Navegación suave directa sin interferencia de scroll
     if (cleanCmd === 'projects') {
-      const el = document.getElementById('proyectos');
-      el?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const el = document.getElementById('proyectos');
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
     } else if (cleanCmd === 'contact') {
-      const el = document.getElementById('contacto');
-      el?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const el = document.getElementById('contacto');
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
     }
 
     if (onCommandExecuted) {
@@ -60,59 +69,73 @@ const Terminal = ({ onCommandExecuted }) => {
   };
 
   return (
-    <div className="terminal-card shadow-lg" data-testid="interactive-terminal">
-      {/* Barra de título de la terminal */}
-      <div className="terminal-header d-flex align-items-center justify-content-between px-3 py-2">
+    <div className="terminal-card flex-grow-1 d-flex flex-column" data-testid="interactive-terminal">
+      {/* Barra de título única de la terminal estilo ventana macOS/Minimalista */}
+      <div className="terminal-header d-flex align-items-center justify-content-between px-3 px-md-4 py-2">
         <div className="d-flex align-items-center gap-2">
           <span className="dot dot-red"></span>
           <span className="dot dot-yellow"></span>
           <span className="dot dot-green"></span>
-          <span className="terminal-title ms-2">bash - root@vguzc:~</span>
+          <span className="terminal-title ms-2 font-monospace">bash - root@vguzc:~</span>
         </div>
-        <span className="badge bg-dark text-success border border-success-subtle font-monospace small">
-          ● ONLINE
-        </span>
+        <div className="d-flex align-items-center gap-3">
+          <span className="badge-online font-monospace small text-success d-flex align-items-center gap-1">
+            <span className="pulse-dot"></span>
+            <span>● ONLINE</span>
+          </span>
+          <span className="terminal-plus-icon text-muted font-monospace d-none d-sm-inline" aria-hidden="true">+</span>
+        </div>
       </div>
 
-      {/* Pantalla CRT de la terminal */}
-      <div className="terminal-body p-3 font-monospace" role="region" aria-label="Consola de comandos">
-        {history.map((line, index) => (
-          <div key={index} className={`terminal-line terminal-${line.type}`}>
-            {line.text}
-          </div>
-        ))}
-        <div ref={terminalEndRef} />
-      </div>
+      {/* Cuerpo unificado de la terminal: un solo lienzo sin cajas interiores duplicadas */}
+      <div 
+        ref={terminalScrollRef}
+        className="terminal-inner-content d-flex flex-column flex-grow-1 p-3 p-md-4" 
+        role="region" 
+        aria-label="Consola de comandos"
+      >
+        {/* Encabezado: Headline + Comentarios de ROL y BIO */}
+        {children}
 
-      {/* Input de comandos */}
-      <form onSubmit={handleSubmit} className="terminal-input-bar d-flex align-items-center px-3 py-2 border-top border-secondary-subtle">
-        <span className="text-success font-monospace me-2">root@vguzc:~$</span>
-        <input
-          type="text"
-          className="terminal-input font-monospace flex-grow-1"
-          placeholder="Escribe 'help', 'projects', 'status'..."
-          value={inputVal}
-          onChange={(e) => setInputVal(e.target.value)}
-          aria-label="Línea de comando interactiva"
-        />
-        <button type="submit" className="btn btn-sm btn-outline-success font-monospace px-3 ms-2">
-          Ejecutar
-        </button>
-      </form>
+        {/* Flujo de historial de comandos (integrado directamente en el lienzo) */}
+        <div className="terminal-body font-monospace my-2">
+          {history.map((line, index) => (
+            <div key={index} className={`terminal-line terminal-${line.type}`}>
+              {line.text}
+            </div>
+          ))}
+        </div>
 
-      {/* Botones de comando rápido (gamificación interactiva) */}
-      <div className="terminal-quick-actions px-3 py-2 d-flex flex-wrap gap-2 align-items-center">
-        <span className="small text-muted font-monospace">Acciones rápidas:</span>
-        {['help', 'status', 'projects', 'skills', 'matrix', 'clear'].map((cmd) => (
-          <button
-            key={cmd}
-            type="button"
-            className="btn btn-xs quick-cmd-btn font-monospace"
-            onClick={() => executeCommand(cmd)}
-          >
-            {cmd}
+        {/* Barra de entrada de comandos integrada */}
+        <form onSubmit={handleSubmit} className="terminal-input-bar d-flex align-items-center px-3 py-2 mt-auto mb-2">
+          <span className="text-success font-monospace me-2">root@vguzc:~$</span>
+          <input
+            type="text"
+            className="terminal-input font-monospace flex-grow-1"
+            placeholder="Escribe 'help', 'projects', 'skills'..."
+            value={inputVal}
+            onChange={(e) => setInputVal(e.target.value)}
+            aria-label="Línea de comando interactiva"
+          />
+          <button type="submit" className="btn btn-sm btn-outline-success font-monospace px-3 ms-2">
+            Ejecutar
           </button>
-        ))}
+        </form>
+
+        {/* Botones de comandos rápidos */}
+        <div className="terminal-quick-actions d-flex flex-wrap gap-2 align-items-center pt-1">
+          <span className="small text-muted font-monospace me-1">Comandos rápidos:</span>
+          {['help', 'skills', 'projects', 'contact', 'status', 'matrix', 'clear'].map((cmd) => (
+            <button
+              key={cmd}
+              type="button"
+              className="btn btn-xs quick-cmd-btn font-monospace"
+              onClick={() => executeCommand(cmd)}
+            >
+              {cmd}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

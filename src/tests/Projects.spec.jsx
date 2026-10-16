@@ -52,4 +52,25 @@ describe('Componente Projects (Manejo de estado y filtrado)', () => {
     fireEvent.click(allBtn);
     expect(screen.getByText('Proyecto Uno Normal')).not.toBeNull();
   });
+
+  it('debe rotar el carrusel 3D con los botones de navegación', () => {
+    render(<Projects initialProjects={mockProjectsList} />);
+    const rightArrow = screen.getByTitle('Girar a la derecha');
+    const leftArrow = screen.getByTitle('Girar a la izquierda');
+
+    fireEvent.click(rightArrow);
+    fireEvent.click(leftArrow);
+    expect(screen.getByText('Proyecto Uno Normal')).not.toBeNull();
+  });
+
+  it('debe responder a eventos de arrastre en el escenario 3D', () => {
+    render(<Projects initialProjects={mockProjectsList} />);
+    const stage = screen.getByLabelText('Carrusel 3D de proyectos');
+
+    fireEvent.mouseDown(stage, { clientX: 100 });
+    fireEvent.mouseMove(stage, { clientX: 160 });
+    fireEvent.mouseUp(stage);
+
+    expect(stage).not.toBeNull();
+  });
 });

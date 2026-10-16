@@ -46,6 +46,11 @@ module.exports = {
           from: 'public/data',
           to: 'data',
           noErrorOnMissing: true
+        },
+        {
+          from: 'public/assets',
+          to: 'assets',
+          noErrorOnMissing: true
         }
       ]
     })

@@ -20,6 +20,11 @@ const ProjectCard = ({
             className="card-img-top project-slide-img"
             alt={`Captura del proyecto ${titulo}`}
             loading="lazy"
+            onError={(e) => {
+              if (imagen && imagen.includes('pasteleria')) {
+                e.currentTarget.src = 'https://raw.githubusercontent.com/vguzc/Pasteleria_Mil_Sabores_P1_FSII/main/img/torta-mil-sabores.png';
+              }
+            }}
           />
           {destacado && (
             <span className="featured-pill-badge position-absolute top-0 end-0 m-3 shadow-sm">
@@ -66,6 +71,17 @@ const ProjectCard = ({
                 <span>Demo</span>
                 <i className="bi bi-arrow-up-right small" aria-hidden="true"></i>
               </a>
+            )}
+            {!enlaceRepo && !enlaceDemo && (
+              <button
+                type="button"
+                className="btn btn-slide-action btn-sm flex-fill text-muted"
+                disabled
+                style={{ opacity: 0.6, cursor: 'not-allowed' }}
+              >
+                <i className="bi bi-clock me-1" aria-hidden="true"></i>
+                Próximamente
+              </button>
             )}
           </div>
         </div>

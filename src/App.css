@@ -14,10 +14,10 @@
   --border-card: #222d34;
   --border-hover: #32434d;
   
-  /* Acento verde sobrio y elegante (exclusivo para micro-detalles) */
-  --accent-green-sober: #10b981;
-  --accent-green-dark: #059669;
-  --accent-green-subtle: rgba(16, 185, 129, 0.15);
+  /* Acento verde sobrio y elegante (más oscuro, exclusivo para micro-detalles) */
+  --accent-green-sober: #059669;
+  --accent-green-dark: #047857;
+  --accent-green-subtle: rgba(5, 150, 105, 0.18);
   --accent-amber: #f59e0b;
   
   /* Tipografía limpia con ALTO CONTRASTE y máxima legibilidad */
