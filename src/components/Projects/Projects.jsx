@@ -59,7 +59,7 @@ const Projects = ({ initialProjects = null }) => {
 
     const loadProjectsData = async () => {
       try {
-        const response = await fetch('/data/proyectos.json');
+        const response = await fetch('./data/proyectos.json');
         if (!response.ok) {
           throw new Error('No se pudo cargar el archivo JSON de proyectos');
         }

@@ -62,7 +62,7 @@ const News = ({ initialNews = null }) => {
 
     const loadNews = async () => {
       try {
-        const response = await fetch('/data/noticias.json');
+        const response = await fetch('./data/noticias.json');
         if (!response.ok) {
           throw new Error('No se pudo cargar el archivo JSON de noticias');
         }
