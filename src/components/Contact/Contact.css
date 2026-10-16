@@ -1,32 +1,45 @@
 .contact-section {
-  background-color: #f1f5f9;
+  background-color: #0e1315 !important;
 }
 
-.contact-info-card {
-  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-  border-radius: 16px;
+.contact-info-panel {
+  background-color: #13191c !important;
+  border: 1px solid #1f292e !important;
+  border-radius: 12px;
+}
+
+.contact-form-panel {
+  background-color: #13191c !important;
+  border: 1px solid #1f292e !important;
 }
 
 .contact-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background-color: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #172126;
+  border: 1px solid #243239;
+  color: #00e575;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.form-control {
-  padding: 0.75rem 1rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+.crt-input {
+  background-color: #0a0e10 !important;
+  border: 1px solid #233036 !important;
+  color: #e6edf3 !important;
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
 }
 
-.form-control:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+.crt-input:focus {
+  border-color: #00e575 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 229, 117, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.crt-input::placeholder {
+  color: #4b5d67;
 }

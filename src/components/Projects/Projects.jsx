@@ -45,7 +45,7 @@ const DEFAULT_PROJECTS = [
   }
 ];
 
-const Projects = ({ initialProjects = null }) => {
+const Projects = ({ initialProjects = null, onFilterUsed }) => {
   const [projects, setProjects] = useState(initialProjects || []);
   const [filter, setFilter] = useState('todos');
   const [loading, setLoading] = useState(!initialProjects);
@@ -66,7 +66,6 @@ const Projects = ({ initialProjects = null }) => {
         const data = await response.json();
         setProjects(data);
       } catch (err) {
-        // Fallback a los datos por defecto si hay problemas de red o entorno
         setProjects(DEFAULT_PROJECTS);
       } finally {
         setLoading(false);
@@ -76,38 +75,44 @@ const Projects = ({ initialProjects = null }) => {
     loadProjectsData();
   }, [initialProjects]);
 
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+    if (onFilterUsed) onFilterUsed(newFilter);
+  };
+
   const filteredProjects = projects.filter((project) => {
     if (filter === 'destacados') return project.destacado;
     return true;
   });
 
   return (
-    <section id="proyectos" className="projects-section py-5 bg-light" aria-labelledby="projects-heading">
+    <section id="proyectos" className="projects-section py-5" aria-labelledby="projects-heading">
       <div className="container py-lg-4">
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-8">
-            <span className="badge bg-primary text-uppercase px-3 py-2 rounded-pill fw-semibold mb-2">
-              Trabajo Práctico
+            <span className="badge crt-badge font-monospace text-uppercase px-3 py-2 rounded-pill fw-semibold mb-2">
+              [ ARSENAL DE PROYECTOS ]
             </span>
-            <h2 id="projects-heading" className="display-5 fw-bold text-dark">
-              Proyectos Destacados
+            <h2 id="projects-heading" className="display-5 fw-bold text-light">
+              Misiones & Desarrollos
             </h2>
             <p className="lead text-secondary">
-              Selección de aplicaciones web desarrolladas aplicando desarrollo seguro, componentes interactivos y diseño responsivo.
+              Aplicaciones creadas bajo estándares de seguridad OWASP, interfaces reactivas y arquitectura por componentes.
             </p>
 
-            <div className="btn-group mt-3" role="group" aria-label="Filtro de proyectos">
+            {/* Selector de filtro tipo switch tecnológico */}
+            <div className="filter-group d-inline-flex p-1 mt-3" role="group" aria-label="Filtro de proyectos">
               <button
                 type="button"
-                className={`btn btn-sm ${filter === 'todos' ? 'btn-primary' : 'btn-outline-primary'}`}
-                onClick={() => setFilter('todos')}
+                className={`btn btn-sm filter-btn font-monospace ${filter === 'todos' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('todos')}
               >
                 Todos ({projects.length})
               </button>
               <button
                 type="button"
-                className={`btn btn-sm ${filter === 'destacados' ? 'btn-primary' : 'btn-outline-primary'}`}
-                onClick={() => setFilter('destacados')}
+                className={`btn btn-sm filter-btn font-monospace ${filter === 'destacados' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('destacados')}
               >
                 Solo Destacados
               </button>
@@ -117,7 +122,7 @@ const Projects = ({ initialProjects = null }) => {
 
         {loading ? (
           <div className="text-center py-5" data-testid="loading-indicator">
-            <div className="spinner-border text-primary" role="status">
+            <div className="spinner-border text-success" role="status">
               <span className="visually-hidden">Cargando proyectos...</span>
             </div>
           </div>

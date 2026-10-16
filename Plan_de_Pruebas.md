@@ -46,6 +46,9 @@ El objetivo principal es asegurar la robustez, accesibilidad, manejo de estado y
 | **Contact** | TC-14 | Validación de formulario vacío | Clic en submit sin llenar campos | Alerta de error visible en pantalla | IE2.1.2 / IE2.2.1 |
 | **Contact** | TC-15 | Actualización de estado en inputs | Evento `change` en campos | `input.value` refleja los caracteres tipeados | IE2.1.2 / IE2.2.1 |
 | **Contact** | TC-16 | Envío exitoso y reseteo de formulario | Clic en submit con datos válidos | Pantalla/alerta de éxito desplegada | IE2.1.2 / IE2.2.1 |
+| **Terminal** | TC-17 | Renderizado de consola y línea de comandos | Montaje inicial | Muestra título `bash - root@vguzc:~` e input | IE2.1.1 / IE2.2.1 |
+| **Terminal** | TC-18 | Procesamiento y respuesta de comandos | Ejecución de comando `help` | Output con comandos disponibles desplegado | IE2.1.2 / IE2.2.1 |
+| **Terminal** | TC-19 | Ejecución mediante botones de acción rápida | Clic en botón `matrix` | Invoca callback y muestra respuesta en DOM | IE2.1.2 / IE2.2.1 |
 
 ---
 

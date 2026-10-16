@@ -11,23 +11,23 @@ const NewsCard = ({
   enlace = "#"
 }) => {
   return (
-    <article className="card news-card h-100 shadow-sm border-0" data-testid={`news-card-${id}`}>
+    <article className="card news-bitacora-card h-100 shadow-sm border-0" data-testid={`news-card-${id}`}>
       <div className="card-body p-4 d-flex flex-column">
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <span className="badge bg-secondary-subtle text-secondary-emphasis rounded-pill px-3 py-1">
+          <span className="badge category-tag font-monospace">
             {categoria}
           </span>
-          <span className="text-muted small">
-            <i className="bi bi-clock me-1" aria-hidden="true"></i>
-            {leidoMinutos} min de lectura
+          <span className="text-muted small font-monospace">
+            <i className="bi bi-clock me-1 text-success" aria-hidden="true"></i>
+            {leidoMinutos} min
           </span>
         </div>
 
-        <h3 className="card-title h5 fw-bold text-dark mb-2 news-headline">
+        <h3 className="card-title h5 fw-bold text-light mb-2 news-headline">
           {titulo}
         </h3>
 
-        <div className="text-muted small mb-3 d-flex align-items-center gap-2">
+        <div className="text-muted small mb-3 d-flex align-items-center gap-2 font-monospace">
           <span>
             <i className="bi bi-calendar3 me-1" aria-hidden="true"></i>
             {fecha}
@@ -43,15 +43,15 @@ const NewsCard = ({
           {resumen}
         </p>
 
-        <div className="pt-2 border-top">
+        <div className="pt-2 border-top border-secondary-subtle">
           <a
             href={enlace}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-link text-decoration-none p-0 fw-semibold text-primary d-inline-flex align-items-center gap-1"
+            className="btn btn-link text-decoration-none p-0 fw-semibold text-success font-monospace d-inline-flex align-items-center gap-1"
             aria-label={`Leer artículo completo sobre ${titulo}`}
           >
-            <span>Leer más</span>
+            <span>[ Acceder a bitácora ]</span>
             <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>

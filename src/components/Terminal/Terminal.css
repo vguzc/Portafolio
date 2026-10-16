@@ -1,0 +1,99 @@
+.terminal-card {
+  background-color: #0b0f11;
+  border: 1px solid #1f292e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.3s ease;
+}
+
+.terminal-card:focus-within,
+.terminal-card:hover {
+  border-color: rgba(0, 229, 117, 0.4);
+}
+
+.terminal-header {
+  background-color: #11171a;
+  border-bottom: 1px solid #1f292e;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red { background-color: #ef4444; }
+.dot-yellow { background-color: #eab308; }
+.dot-green { background-color: #22c55e; }
+
+.terminal-title {
+  color: #8b9ca7;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.terminal-body {
+  height: 160px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 229, 117, 0.03) 0%, rgba(11, 15, 17, 1) 100%);
+}
+
+.terminal-line {
+  margin-bottom: 0.25rem;
+}
+
+.terminal-system {
+  color: #64748b;
+}
+
+.terminal-user {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.terminal-output {
+  color: #00e575;
+  text-shadow: 0 0 4px rgba(0, 229, 117, 0.35);
+}
+
+.terminal-input-bar {
+  background-color: #0e1416;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e6edf3;
+  font-size: 0.85rem;
+  padding: 0.25rem;
+}
+
+.terminal-input::placeholder {
+  color: #475569;
+}
+
+.terminal-quick-actions {
+  background-color: #0c1113;
+  border-top: 1px solid #192226;
+}
+
+.quick-cmd-btn {
+  background-color: #161e22;
+  border: 1px solid #243036;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.quick-cmd-btn:hover {
+  background-color: #00e575;
+  color: #0c1012;
+  border-color: #00e575;
+}

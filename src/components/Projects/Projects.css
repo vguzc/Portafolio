@@ -1,34 +1,110 @@
 .projects-section {
-  background-color: #f8fafc !important;
+  background-color: #0e1315 !important;
+  border-bottom: 1px solid #1a2226;
 }
 
-.project-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border-radius: 12px;
+.crt-badge {
+  background-color: #162025;
+  border: 1px solid #28373e;
+  color: var(--accent-phosphor);
+  letter-spacing: 0.05em;
+}
+
+.filter-group {
+  background-color: #141b1e;
+  border: 1px solid #233036;
+  border-radius: 8px;
+}
+
+.filter-btn {
+  color: #94a3b8;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+  background-color: #00e575;
+  color: #0c1012;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 229, 117, 0.3);
+}
+
+.project-mission-card {
+  background-color: #13191c !important;
+  border: 1px solid #222d33 !important;
+  border-radius: 10px;
   overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12) !important;
+.project-mission-card:hover {
+  transform: translateY(-5px);
+  border-color: #00e575 !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4) !important;
 }
 
-.featured-card {
-  border: 2px solid #ffc107 !important;
+.featured-mission {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+.mission-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00e575;
+  display: inline-block;
 }
 
 .card-img-wrapper {
-  height: 220px;
-  background-color: #e2e8f0;
+  height: 210px;
+  background-color: #0c1012;
 }
 
 .project-image {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: brightness(0.92) contrast(1.05);
 }
 
-.project-card:hover .project-image {
-  transform: scale(1.05);
+.project-mission-card:hover .project-image {
+  transform: scale(1.04);
+  filter: brightness(1) contrast(1.1);
+}
+
+.tech-badge {
+  background-color: #1a2327;
+  border: 1px solid #27363d;
+  color: #a5b4fc;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.btn-mission-action {
+  background-color: #172024;
+  border: 1px solid #27363d;
+  color: #cbd5e1;
+}
+
+.btn-mission-action:hover {
+  background-color: #202b31;
+  color: #ffffff;
+  border-color: #3b4e57;
+}
+
+.btn-mission-primary {
+  background-color: #00e575;
+  color: #0c1012;
+  border: 1px solid #00e575;
+  font-weight: 600;
+}
+
+.btn-mission-primary:hover {
+  background-color: #00c865;
+  color: #0c1012;
+  box-shadow: 0 0 10px rgba(0, 229, 117, 0.3);
 }
