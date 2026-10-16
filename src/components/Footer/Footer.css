@@ -1,25 +1,24 @@
-.footer-section {
-  background-color: #090c0e !important;
-  border-top: 1px solid #1a2226 !important;
+.minimal-footer {
+  background-color: var(--bg-main) !important;
+  border-top: 1px solid var(--border-subtle) !important;
 }
 
-.hover-phosphor:hover {
-  color: var(--accent-phosphor) !important;
+.hover-light-icon:hover {
+  color: var(--text-primary) !important;
 }
 
-.back-to-top-crt {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background-color: #141b1e;
-  border: 1px solid #233036;
-  color: #94a3b8;
-  transition: all 0.25s ease;
+.minimal-back-to-top {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
 }
 
-.back-to-top-crt:hover {
-  background-color: #00e575;
-  color: #0c1012;
-  border-color: #00e575;
-  box-shadow: 0 0 10px rgba(0, 229, 117, 0.4);
+.minimal-back-to-top:hover {
+  background-color: #1e262b;
+  color: var(--text-primary);
+  border-color: var(--border-hover);
 }

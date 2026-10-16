@@ -79,25 +79,24 @@ const News = ({ initialNews = null }) => {
   }, [initialNews]);
 
   return (
-    <section id="noticias" className="news-section py-5" aria-labelledby="news-main-heading">
+    <section id="noticias" className="news-minimal-section py-5" aria-labelledby="news-main-heading">
       <div className="container py-lg-4">
-        <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-8">
-            <span className="badge crt-badge font-monospace text-uppercase px-3 py-2 rounded-pill fw-semibold mb-2">
-              [ TRANSMISIONES & INTELIGENCIA ]
-            </span>
-            <h2 id="news-main-heading" className="display-5 fw-bold text-light">
-              Noticias y Aprendizajes Técnicos
-            </h2>
-            <p className="lead text-secondary">
-              Bitácoras especializadas en dos vertientes: Ciberseguridad y Desarrollo Frontend.
-            </p>
+        <div className="mb-5 pb-2 border-bottom border-secondary-subtle">
+          <div className="d-inline-flex align-items-center gap-2 mb-2">
+            <span className="dot-mini-green"></span>
+            <span className="small text-muted text-uppercase font-monospace">Publicaciones & Artículos</span>
           </div>
+          <h2 id="news-main-heading" className="display-6 fw-bold text-light mb-1">
+            Noticias y Aprendizajes Técnicos
+          </h2>
+          <p className="text-secondary small mb-0">
+            Bitácoras y análisis clasificados en dos vertientes: Ciberseguridad y Desarrollo Web.
+          </p>
         </div>
 
         {loading ? (
           <div className="text-center py-5" data-testid="news-loading-indicator">
-            <div className="spinner-border text-success" role="status">
+            <div className="spinner-border text-secondary" role="status">
               <span className="visually-hidden">Cargando noticias...</span>
             </div>
           </div>
@@ -106,10 +105,7 @@ const News = ({ initialNews = null }) => {
             {/* Sección 1: Ciberseguridad */}
             <div className="col-lg-6" data-testid="news-section-cybersecurity">
               <div className="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom border-secondary-subtle">
-                <span className="section-icon-crt">
-                  <i className="bi bi-shield-lock-fill fs-5 text-warning" aria-hidden="true"></i>
-                </span>
-                <h3 className="h4 fw-bold mb-0 text-light font-monospace">1. Ciberseguridad & Seguridad Web</h3>
+                <h3 className="h5 fw-bold mb-0 text-light">1. Ciberseguridad & Seguridad Web</h3>
               </div>
 
               <div className="row g-3">
@@ -124,10 +120,7 @@ const News = ({ initialNews = null }) => {
             {/* Sección 2: Desarrollo Web */}
             <div className="col-lg-6" data-testid="news-section-webdev">
               <div className="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom border-secondary-subtle">
-                <span className="section-icon-crt">
-                  <i className="bi bi-code-slash fs-5 text-success" aria-hidden="true"></i>
-                </span>
-                <h3 className="h4 fw-bold mb-0 text-light font-monospace">2. Desarrollo Frontend & Testing</h3>
+                <h3 className="h5 fw-bold mb-0 text-light">2. Desarrollo Frontend & Testing</h3>
               </div>
 
               <div className="row g-3">

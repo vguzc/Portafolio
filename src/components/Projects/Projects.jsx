@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
@@ -49,6 +49,7 @@ const Projects = ({ initialProjects = null, onFilterUsed }) => {
   const [projects, setProjects] = useState(initialProjects || []);
   const [filter, setFilter] = useState('todos');
   const [loading, setLoading] = useState(!initialProjects);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     if (initialProjects) {
@@ -80,54 +81,96 @@ const Projects = ({ initialProjects = null, onFilterUsed }) => {
     if (onFilterUsed) onFilterUsed(newFilter);
   };
 
+  const slideLeft = () => {
+    sliderRef.current?.scrollBy({ left: -360, behavior: 'smooth' });
+  };
+
+  const slideRight = () => {
+    sliderRef.current?.scrollBy({ left: 360, behavior: 'smooth' });
+  };
+
   const filteredProjects = projects.filter((project) => {
     if (filter === 'destacados') return project.destacado;
     return true;
   });
 
   return (
-    <section id="proyectos" className="projects-section py-5" aria-labelledby="projects-heading">
+    <section id="proyectos" className="projects-slider-section py-5" aria-labelledby="projects-heading">
       <div className="container py-lg-4">
-        <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-8">
-            <span className="badge crt-badge font-monospace text-uppercase px-3 py-2 rounded-pill fw-semibold mb-2">
-              [ ARSENAL DE PROYECTOS ]
-            </span>
-            <h2 id="projects-heading" className="display-5 fw-bold text-light">
-              Misiones & Desarrollos
+        {/* Encabezado y Controles del Slider estilo Gabriel Valdivia */}
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-4 pb-2 border-bottom border-secondary-subtle">
+          <div>
+            <div className="d-inline-flex align-items-center gap-2 mb-2">
+              <span className="dot-mini-green"></span>
+              <span className="small text-muted text-uppercase font-monospace">Portafolio de Trabajo</span>
+            </div>
+            <h2 id="projects-heading" className="display-6 fw-bold text-light mb-1">
+              Proyectos Destacados
             </h2>
-            <p className="lead text-secondary">
-              Aplicaciones creadas bajo estándares de seguridad OWASP, interfaces reactivas y arquitectura por componentes.
+            <p className="text-secondary small mb-md-0">
+              Desarrollos web construidos con React, diseño responsivo y arquitectura modular.
             </p>
+          </div>
 
-            {/* Selector de filtro tipo switch tecnológico */}
-            <div className="filter-group d-inline-flex p-1 mt-3" role="group" aria-label="Filtro de proyectos">
+          <div className="d-flex align-items-center gap-3 mt-3 mt-md-0">
+            {/* Filtro tipo píldora */}
+            <div className="pill-filter-dock d-inline-flex p-1" role="group" aria-label="Filtro de proyectos">
               <button
                 type="button"
-                className={`btn btn-sm filter-btn font-monospace ${filter === 'todos' ? 'active' : ''}`}
+                className={`btn btn-sm filter-pill-btn ${filter === 'todos' ? 'active' : ''}`}
                 onClick={() => handleFilterChange('todos')}
               >
                 Todos ({projects.length})
               </button>
               <button
                 type="button"
-                className={`btn btn-sm filter-btn font-monospace ${filter === 'destacados' ? 'active' : ''}`}
+                className={`btn btn-sm filter-pill-btn ${filter === 'destacados' ? 'active' : ''}`}
                 onClick={() => handleFilterChange('destacados')}
               >
                 Solo Destacados
               </button>
             </div>
+
+            {/* Flechas de navegación para el slider */}
+            <div className="slider-nav-arrows d-none d-sm-flex gap-2">
+              <button
+                type="button"
+                className="slider-arrow-btn"
+                onClick={slideLeft}
+                aria-label="Desplazar a la izquierda"
+                title="Ver anterior"
+              >
+                <i className="bi bi-chevron-left"></i>
+              </button>
+              <button
+                type="button"
+                className="slider-arrow-btn"
+                onClick={slideRight}
+                aria-label="Desplazar a la derecha"
+                title="Ver siguiente"
+              >
+                <i className="bi bi-chevron-right"></i>
+              </button>
+            </div>
           </div>
         </div>
 
+        {/* Carrusel / Slider horizontal de tarjetas */}
         {loading ? (
           <div className="text-center py-5" data-testid="loading-indicator">
-            <div className="spinner-border text-success" role="status">
+            <div className="spinner-border text-secondary" role="status">
               <span className="visually-hidden">Cargando proyectos...</span>
             </div>
           </div>
         ) : (
-          <div className="row g-4" id="projects-list">
+          <div
+            className="projects-horizontal-track d-flex gap-4 pb-3"
+            id="projects-list"
+            ref={sliderRef}
+            tabIndex={0}
+            role="region"
+            aria-label="Carrusel de proyectos"
+          >
             {filteredProjects.map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}

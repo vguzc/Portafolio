@@ -1,110 +1,156 @@
-.projects-section {
-  background-color: #0e1315 !important;
-  border-bottom: 1px solid #1a2226;
+.projects-slider-section {
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
 }
 
-.crt-badge {
-  background-color: #162025;
-  border: 1px solid #28373e;
-  color: var(--accent-phosphor);
-  letter-spacing: 0.05em;
+/* Filtro tipo píldora */
+.pill-filter-dock {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 24px;
 }
 
-.filter-group {
-  background-color: #141b1e;
-  border: 1px solid #233036;
-  border-radius: 8px;
-}
-
-.filter-btn {
-  color: #94a3b8;
+.filter-pill-btn {
+  color: var(--text-secondary);
   border: none;
-  border-radius: 6px;
-  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.3rem 0.85rem;
   transition: all 0.2s ease;
 }
 
-.filter-btn.active {
-  background-color: #00e575;
-  color: #0c1012;
-  font-weight: 600;
-  box-shadow: 0 0 10px rgba(0, 229, 117, 0.3);
+.filter-pill-btn.active {
+  background-color: #26333a;
+  color: #ffffff;
 }
 
-.project-mission-card {
-  background-color: #13191c !important;
-  border: 1px solid #222d33 !important;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.project-mission-card:hover {
-  transform: translateY(-5px);
-  border-color: #00e575 !important;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4) !important;
-}
-
-.featured-mission {
-  border-color: rgba(245, 158, 11, 0.5) !important;
-}
-
-.mission-indicator {
-  width: 6px;
-  height: 6px;
+/* Flechas de navegación para slider */
+.slider-arrow-btn {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background-color: #00e575;
-  display: inline-block;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.card-img-wrapper {
-  height: 210px;
-  background-color: #0c1012;
+.slider-arrow-btn:hover {
+  background-color: #1a2226;
+  border-color: var(--border-hover);
+  color: var(--text-primary);
 }
 
-.project-image {
-  height: 100%;
+/* Track horizontal deslizante (Inspirado en Gabriel Valdivia) */
+.projects-horizontal-track {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding: 0.5rem 0.2rem 1.5rem 0.2rem;
+}
+
+.project-slide-item {
+  flex: 0 0 360px;
+  max-width: 380px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .project-slide-item {
+    flex: 0 0 88%;
+  }
+}
+
+/* Tarjeta minimalista redondeada */
+.minimal-project-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-card) !important;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.minimal-project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover) !important;
+}
+
+.featured-minimal-card {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.card-mockup-frame {
+  height: 200px;
+  background-color: #0d1214;
+}
+
+.project-slide-img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease, filter 0.35s ease;
-  filter: brightness(0.92) contrast(1.05);
+  transition: transform 0.3s ease;
 }
 
-.project-mission-card:hover .project-image {
-  transform: scale(1.04);
-  filter: brightness(1) contrast(1.1);
+.minimal-project-card:hover .project-slide-img {
+  transform: scale(1.03);
 }
 
-.tech-badge {
-  background-color: #1a2327;
-  border: 1px solid #27363d;
-  color: #a5b4fc;
+.featured-pill {
+  background-color: rgba(9, 12, 14, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  border-radius: 20px;
+  padding: 0.3rem 0.65rem;
+}
+
+.card-description {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.minimal-tech-badge {
+  background-color: #172025;
+  border: 1px solid #233038;
+  color: #94a3b8;
   font-size: 0.72rem;
-  padding: 0.2rem 0.55rem;
+  font-weight: 500;
+  padding: 0.25rem 0.55rem;
   border-radius: 4px;
 }
 
-.btn-mission-action {
-  background-color: #172024;
-  border: 1px solid #27363d;
-  color: #cbd5e1;
+.btn-slide-action {
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  transition: all 0.2s ease;
 }
 
-.btn-mission-action:hover {
-  background-color: #202b31;
+.btn-slide-action:hover {
+  background-color: #1a2226;
+  color: var(--text-primary);
+}
+
+.btn-slide-demo {
+  background-color: #212c32;
+  border: 1px solid #2d3c44;
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-slide-demo:hover {
+  background-color: #2b3941;
   color: #ffffff;
-  border-color: #3b4e57;
-}
-
-.btn-mission-primary {
-  background-color: #00e575;
-  color: #0c1012;
-  border: 1px solid #00e575;
-  font-weight: 600;
-}
-
-.btn-mission-primary:hover {
-  background-color: #00c865;
-  color: #0c1012;
-  box-shadow: 0 0 10px rgba(0, 229, 117, 0.3);
 }
