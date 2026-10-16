@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "titulo": "Plataforma de E-Commerce Segura",
+    "descripcion": "Aplicación web completa de comercio electrónico con pasarela de pagos simulada, sanitización de entradas contra XSS e inyección SQL, y diseño responsivo.",
+    "imagen": "https://images.unsplash.com/photo-1557821552-17105176677c?w=600&auto=format&fit=crop&q=80",
+    "tecnologias": ["React", "Bootstrap 5", "Node.js", "Express", "MongoDB"],
+    "enlaceDemo": "https://vguzc.github.io/ecommerce-demo",
+    "enlaceRepo": "https://github.com/Vguzc/ecommerce-seguro",
+    "destacado": true
+  },
+  {
+    "id": 2,
+    "titulo": "Auditor y Scanner de Vulnerabilidades Web",
+    "descripcion": "Herramienta automatizada para análisis de vulnerabilidades OWASP Top 10 en entornos locales, con generación de reportes y métricas de seguridad.",
+    "imagen": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=80",
+    "tecnologias": ["Python", "Flask", "OWASP ZAP", "Docker", "Bootstrap"],
+    "enlaceDemo": "https://vguzc.github.io/security-scanner",
+    "enlaceRepo": "https://github.com/Vguzc/vulnerability-auditor",
+    "destacado": true
+  },
+  {
+    "id": 3,
+    "titulo": "Dashboard de Finanzas Personales",
+    "descripcion": "Panel interactivo para el control presupuestario y visualización gráfica de ingresos y gastos con almacenamiento persistente.",
+    "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80",
+    "tecnologias": ["React", "Bootstrap 5", "Chart.js", "LocalStorage"],
+    "enlaceDemo": "https://vguzc.github.io/finance-dashboard",
+    "enlaceRepo": "https://github.com/Vguzc/dashboard-finanzas",
+    "destacado": false
+  },
+  {
+    "id": 4,
+    "titulo": "Portal con Autenticación OAuth 2.0 & 2FA",
+    "descripcion": "Sistema web con inicio de sesión federado, autenticación multifactor (MFA), roles y políticas de autorización seguras.",
+    "imagen": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80",
+    "tecnologias": ["React", "Auth0", "Bootstrap", "REST API"],
+    "enlaceDemo": "https://vguzc.github.io/oauth-portal",
+    "enlaceRepo": "https://github.com/Vguzc/oauth-mfa-portal",
+    "destacado": true
+  }
+]
