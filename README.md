@@ -120,24 +120,3 @@ npm test
 npm run test:coverage
 ```
 El reporte detallado en formato HTML se guardará en `coverage/html/index.html`. Puedes abrirlo en tu navegador para ver la cobertura por archivo y función.
-
----
-
-## 📋 Cumplimiento de la Pauta de Evaluación (Duoc UC)
-
-| Indicador | Criterio de Evaluación | Estado | Evidencia / Implementación |
-| :--- | :--- | :---: | :--- |
-| **IL2.1** | **IE2.1.1** React framework y estructura modular | ✅ | Arquitectura basada en componentes funcionales en `src/components/` |
-| **IL2.1** | **IE2.1.2** Uso efectivo de State y Props | ✅ | `useState`, `useEffect`, inyección de props en `ProjectCard`, `NewsCard` y `Hero` |
-| **IL2.1** | **IE2.1.3** Diseño responsivo con Bootstrap | ✅ | Sistema Grid, Navbar colapsable, Cards, Botones y Formularios Bootstrap 5 |
-| **IL2.2** | **IE2.2.1** Configuración de Jasmine y Karma | ✅ | Configurado en `karma.conf.js` con pruebas de renderizado, eventos y DOM |
-| **IL2.3** | **IE2.3.1** Plan de pruebas documentado y Mocks | ✅ | Documentado en `Plan_de_Pruebas.md` y simulación en `src/tests/` |
-| **IL2.3** | **IE2.3.2** Informe de cobertura de código | ✅ | Instrumentación con `karma-coverage` y reporte HTML |
-
----
-
-## 👤 Autor
-- **Estudiante:** Vicente Guzmán
-- **Correo Institucional:** [vi.guzmanc@duocuc.cl](mailto:vi.guzmanc@duocuc.cl)
-- **GitHub:** [@Vguzc](https://github.com/Vguzc)
-- **Institución:** Duoc UC — Escuela de Informática y Telecomunicaciones
